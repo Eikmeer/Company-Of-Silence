@@ -1,0 +1,115 @@
+:root{
+  /* ---- edit these to restyle the whole site ---- */
+  --color-bg: #f4f1ea;        /* page background, warm cream */
+  --color-text: #181714;      /* main text, near-black */
+  --color-line: #c7c2b8;      /* hairline dividers */
+  --color-dark-bg: #181714;   /* menu drawer background */
+  --color-dark-text: #f4f1ea; /* menu drawer text */
+  --font-body: "Libre Baskerville", Georgia, serif;
+  --font-mono: "DM Mono", monospace;
+  --font-script: "Marck Script", cursive;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);font-size:16px;line-height:1.8}
+
+/* ---------- header ---------- */
+.site-header{position:fixed;z-index:10;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 5vw;mix-blend-mode:multiply}
+.brand{font-family:var(--font-script);font-size:30px;line-height:1;color:inherit;text-decoration:none;letter-spacing:.01em}
+.menu-toggle{font:500 12px var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:inherit;text-decoration:none;background:none;border:0;cursor:pointer}
+.menu-toggle{border-bottom:1px solid var(--color-text);padding:0 0 2px}
+.menu-toggle:focus-visible,.brand:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--color-text);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;padding:18vh 12vw 10vh;display:flex;flex-direction:column;justify-content:center}
+.eyebrow,.meta,.section-label,small{font:400 11px var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.hero .wordmark{font-family:var(--font-script);font-size:clamp(40px,6vw,64px);margin:0 0 6px;line-height:1}
+.hero h1{font-size:clamp(48px,8vw,120px);font-weight:400;line-height:.98;letter-spacing:-.05em;margin:20px 0 28px;max-width:1000px}
+.intro{max-width:520px;font-size:18px}
+.scroll-link,.read-link,.text-link{color:inherit;text-decoration:none;font:500 11px var(--font-mono);text-transform:uppercase;letter-spacing:.08em;margin-top:45px;display:inline-block}
+.scroll-link,.text-link{border-bottom:1px solid;width:max-content}
+
+/* ---------- shared section rhythm ---------- */
+.featured,.contents,.all-reads,.discards,.article,.split,.page-section{padding:120px 12vw}
+.section-label{margin-bottom:60px}
+.featured article{max-width:800px;margin-left:auto}
+.featured h2,.split h2,.article h1,.contents h2,.page-section h1{font-size:clamp(36px,6vw,80px);font-weight:400;line-height:1.05;letter-spacing:-.04em;margin:15px 0 25px}
+.excerpt{font-size:20px;max-width:650px}
+
+/* ---------- about / split ---------- */
+.split{display:grid;grid-template-columns:1fr 2fr;border-top:1px solid var(--color-line)}
+.split>div:last-child{max-width:720px}
+.split p{font-size:18px}
+.split .text-link{margin-top:30px}
+
+/* ---------- contents (full index, merged with all reads) ---------- */
+.contents{border-top:1px solid var(--color-line)}
+.contents .intro{max-width:640px;margin-bottom:60px;font-size:18px}
+.list{border-top:1px solid var(--color-text)}
+.list a{display:grid;grid-template-columns:1fr 3fr 80px;gap:20px;padding:22px 0;border-bottom:1px solid var(--color-line);color:inherit;text-decoration:none;align-items:center;transition:padding-left .2s ease}
+.list a:hover,.list a:focus-visible{padding-left:10px}
+.list span,.list em{font:11px var(--font-mono);text-transform:uppercase;font-style:normal}
+.list strong{font-size:22px;font-weight:400}
+
+/* ---------- discard ---------- */
+.discards{border-top:1px solid var(--color-line);text-align:center}
+.discards blockquote{font-size:clamp(30px,5vw,64px);line-height:1.15;font-weight:400;max-width:900px;margin:0 auto 30px;letter-spacing:-.04em}
+.discards p{max-width:520px;margin:0 auto 40px}
+
+
+/* ---------- article / post pages ---------- */
+.article{border-top:1px solid var(--color-line);max-width:1100px;margin:auto}
+.article h1,.article h2{max-width:850px}
+.article-body{max-width:680px;margin:60px 0 0 auto;font-size:19px}
+.article-body p{margin:0 0 26px}
+.article-body p:last-child{margin-bottom:0}
+.post-nav{max-width:680px;margin:70px 0 0 auto;padding-top:30px;border-top:1px solid var(--color-line);display:flex;justify-content:space-between;gap:20px}
+.post-nav a{color:inherit;text-decoration:none;font:500 11px var(--font-mono);text-transform:uppercase;letter-spacing:.08em}
+.post-nav a:hover{border-bottom:1px solid}
+
+/* ---------- generic page (about / discard) ---------- */
+.page-section{border-top:1px solid var(--color-line);max-width:900px}
+.page-section .lede{font-size:20px;max-width:650px}
+.page-section p{font-size:18px;max-width:650px}
+
+/* ---------- drawer nav ---------- */
+.drawer{position:fixed;z-index:20;inset:0;background:var(--color-dark-bg);color:var(--color-dark-text);padding:35px 5vw;transform:translateY(-100%);transition:transform .5s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column}
+.drawer.open{transform:translateY(0)}
+.drawer-close{align-self:flex-end;background:none;border:0;color:inherit;font:12px var(--font-mono);text-transform:uppercase;cursor:pointer;border-bottom:1px solid}
+.drawer nav{margin:auto 0;display:flex;flex-direction:column;gap:5px}
+.drawer nav a{font-family:"Libre Baskerville",serif;font-size:clamp(40px,7vw,90px);line-height:1.05;color:inherit;text-decoration:none;letter-spacing:-.04em}
+.drawer nav a:hover{font-style:italic}
+.subscribe-box{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #555;padding-top:20px;flex-wrap:wrap;gap:16px}
+.subscribe-box p{font:11px var(--font-mono);text-transform:uppercase;margin:0}
+.subscribe-box form{display:flex;gap:8px}
+.subscribe-box input{background:transparent;border:0;border-bottom:1px solid #777;padding:8px;color:var(--color-dark-text);font:12px var(--font-mono);min-width:260px}
+.subscribe-box button{background:var(--color-dark-text);color:var(--color-dark-bg);border:0;padding:9px 14px;font:11px var(--font-mono);text-transform:uppercase;cursor:pointer}
+#form-message{color:#aaa;font:10px var(--font-mono);text-transform:uppercase}
+
+footer{padding:40px 5vw;border-top:1px solid var(--color-line);display:flex;justify-content:space-between;font:10px var(--font-mono);text-transform:uppercase}
+footer .foot-brand{font-family:var(--font-script);font-size:16px;text-transform:none;letter-spacing:0}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .drawer{transition:none}
+  .list a{transition:none}
+}
+
+@media(max-width:700px){
+  .hero,.featured,.contents,.all-reads,.discards,.article,.split,.page-section{padding-left:7vw;padding-right:7vw}
+  .split{display:block}
+  .section-label{margin-bottom:36px}
+  .list a{grid-template-columns:1fr 2fr}
+  .list em{display:none}
+  .list strong{font-size:17px}
+  .subscribe-box{display:block}
+  .subscribe-box form{margin-top:15px}
+  .subscribe-box input{min-width:0;width:65%}
+  .subscribe-box button{width:30%}
+  .drawer nav a{font-size:44px}
+  .article-body{margin-top:44px}
+  .post-nav{flex-direction:column;gap:12px}
+  footer{display:block}
+  footer div+div{margin-top:10px}
+}
